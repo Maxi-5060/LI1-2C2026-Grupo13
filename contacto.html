@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Contacto</title>
+</head>
+
+<body>
+    <header>
+        <!-- Encabezado de la página -->
+        <h1>Centro Turístico de Numazu</h1>
+        <nav class="navegacion">
+        <!-- Barra de navegación --> 
+            <ul>
+                 <!-- Enlaces internos (#) y a otras páginas -->
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#ciudad">Ciudad</a></li>
+                <li><a href="index.html#lugares">Lugares</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<main>
+        <article>
+            <h2>Formas de contacto</h2>
+            <h3>Oficina de turismo de Numazu</h3>
+        
+        <div>
+            <img src="./Img/address.png" alt="Dirección" width="30">
+            <strong>Dirección:</strong>
+            16-1 Miyuki-cho, Numazu-shi, Shizuoka 410-8601
+        </div>
+
+        <div>
+            <img src="./Img/telephone.png" alt="Teléfono" width="30">
+            <strong>Teléfono:</strong>
+            <a href="tel:+81559344747">+81 55 934 4747</a>
+        </div>
+
+        <div>
+            <img src="./Img/mail.png" alt="Correo" width="30">
+            <strong>Email:</strong>
+            <a href="mailto:turismo@numazu.jp">turismo@numazu.jp</a>
+        </div>
+
+        <h3>Redes sociales:</h3>
+        <p>
+            <strong>Seguinos en Instagram:</strong>
+            <img src="./Img/Instagram-logo.png" alt="Instagram" width="30">
+            <a href="https://www.instagram.com/numazutravel/" target="_blank" rel="noopener noreferrer">NumazuTravel</a>
+        </p>
+    </article>
+
+ <article>
+        <h2>Envíanos tu consulta</h2>
+        <p>Ingresa los siguientes datos para enviar tu consulta</p>
+        <form action="#" method="post">
+            <div>
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div>
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" required>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="consulta">Consulta</label>
+                <textarea id="consulta" name="consulta" rows="6" required></textarea>
+            </div>
+            <div>
+                <button type="submit">ENVIAR</button>
+            </div>
+        </form>
+    </article>
+</main>
+    
+    <footer>
+        <p>© 2026 Oficina de Turismo de Numazu</p>
+    </footer>
+</body>
+</html>
