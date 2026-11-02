@@ -8,9 +8,16 @@
         <meta name="description" content="Detalles y formas de contacto sobre el Centro Turístico de Numazu.">
         <meta name="author" content="Maxi5060">
         <meta name="robots" content="noarchive, noimageindex">
+
+        <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- CSS propio -->
         <link rel="stylesheet" href="./styles/styles.css">
 
         <title>Contacto | Centro Turístico de Numazu</title>
@@ -25,18 +32,31 @@
             width="330"
             height="231"
             alt="Bandera de Numazu">
-        
-        <nav class="navegacion">
-        <!-- Barra de navegación --> 
-            <ul>
-                 <!-- Enlaces internos (#) y a otras páginas -->
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="index.html#ciudad">Ciudad</a></li>
-                <li><a href="index.html#lugares">Lugares</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
     </header>
+        
+            <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Menú Principal">
+            <!-- Barra de navegación --> 
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Numazu </a>
+
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                    aria-controls="menuPrincipal" aria-expanded="false"
+                    aria-label="Mostrar u ocultar el menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav mx-auto">
+                    <!-- Enlaces internos (#) y a otras páginas -->
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#ciudad">Ciudad</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#lugares">Lugares</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
 <main>
         <article>
@@ -44,19 +64,19 @@
             <h3>Oficina de turismo de Numazu</h3>
         
         <div>
-            <img src="./Img/address.png" alt="Dirección" width="30">
+            <img src="./Img/address.png" alt="" width="30">
             <strong>Dirección:</strong>
             16-1 Miyuki-cho, Numazu-shi, Shizuoka 410-8601
         </div>
 
         <div>
-            <img src="./Img/telephone.png" alt="Teléfono" width="30">
+            <img src="./Img/telephone.png" alt="" width="30">
             <strong>Teléfono:</strong>
             <a href="tel:+81559344747">+81 55 934 4747</a>
         </div>
 
         <div>
-            <img src="./Img/mail.png" alt="Correo" width="30">
+            <img src="./Img/mail.png" alt="" width="30">
             <strong>Email:</strong>
             <a href="mailto:turismo@numazu.jp">turismo@numazu.jp</a>
         </div>
@@ -64,7 +84,7 @@
         <h3>Redes sociales:</h3>
         <p>
             <strong>Seguinos en Instagram:</strong>
-            <img src="./Img/Instagram-logo.png" alt="Instagram" width="30">
+            <img src="./Img/Instagram-logo.png" alt="" width="30">
             <a href="https://www.instagram.com/numazutravel/" target="_blank" rel="noopener noreferrer">NumazuTravel</a>
         </p>
     </article>
@@ -73,24 +93,24 @@
         <h2>Envíanos tu consulta</h2>
         <p>Ingresa los siguientes datos para enviar tu consulta</p>
         <form action="#" method="post">
-            <div>
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" required>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="tel" class="form-control" id="telefono" name="telefono" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="consulta" class="form-label">Consulta</label>
+                <textarea id="consulta" class="form-control" name="consulta" rows="6" required></textarea>
             </div>
             <div>
-                <label for="telefono">Teléfono</label>
-                <input type="tel" id="telefono" name="telefono" required>
-            </div>
-            <div>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div>
-                <label for="consulta">Consulta</label>
-                <textarea id="consulta" name="consulta" rows="6" required></textarea>
-            </div>
-            <div>
-                <button type="submit">ENVIAR</button>
+                <button type="submit" class="btn btn-primary">ENVIAR</button>
             </div>
         </form>
     </article>
@@ -99,5 +119,8 @@
     <footer>
         <p>© 2026 Oficina de Turismo de Numazu</p>
     </footer>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
