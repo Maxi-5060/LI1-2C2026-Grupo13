@@ -61,7 +61,6 @@ ol {
     margin-bottom: 1rem;
 }
 
-
 a {
     color: var(--color-primario);
 }
@@ -72,6 +71,7 @@ img {
 }
 
 /* ===== Header ===== */
+
 header {
     background-color: var(--color-secundario);
     color: #fff;
@@ -90,35 +90,6 @@ header img {
     margin: 0 auto 16px;
 }
 
-/* ===== Navegación ===== */
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    background-color: var(--color-primario);
-}
-
-nav li {
-    margin: 0 4px;
-}
-
-nav a {
-    display: block;
-    padding: 14px 28px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    border-bottom: 3px solid transparent;
-}
-
-nav a:hover {
-    background-color: var(--color-secundario);
-    border-bottom-color: var(--color-acento);
-}
-
 /* ===== Contenido principal ===== */
 main {
     padding: 24px 0;
@@ -126,6 +97,7 @@ main {
 
 section {
     padding: 24px 0;
+    scroll-margin-top: 80px;
 }
 
 section > article {
@@ -133,49 +105,8 @@ section > article {
 }
 
 /* ===== Inicio ===== */
-.resumen {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 24px;
-}
 
-.resumen li {
-    flex: 1 1 200px;
-    border: 1px solid var(--color-borde);
-    border-radius: 8px;
-    background-color: var(--color-tarjeta);
-}
-
-.resumen a {
-    display: block;
-    color: inherit;
-    text-decoration: none;
-}
-
-.resumen a:hover {
-    background-color: var(--color-gris);
-}
-
-.resumen img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.resumen .nombre {
-    display: block;
-    padding: 10px 12px 2px;
-    font-weight: bold;
-}
-
-.resumen .dato {
-    display: block;
-    padding: 0 12px 12px;
-    font-size: 0.9rem;
-}
+/* Flexbox: grilla de eventos con flex-wrap y gap */
 
 .eventos {
     display: flex;
@@ -229,28 +160,18 @@ section > article {
 }
 
 /* ===== Lugares ===== */
-.lugares {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
 
 .lugar {
-    flex: 1 1 320px;
     border: 1px solid var(--color-borde);
     border-radius: 8px;
     padding: 16px;
     background-color: var(--color-tarjeta);
+    scroll-margin-top: 80px;
 }
 
 .lugar dt {
     font-weight: bold;
     margin-top: 8px;
-}
-
-.visitantes {
-    font-weight: bold;
-    color: var(--color-primario);
 }
 
 .fuente {
@@ -270,45 +191,15 @@ section > article {
 .fotos img {
     width: 50%;
     height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
     border-radius: 4px;
 }
 
 /* ===== Formulario (contacto) ===== */
-form div {
-    margin-bottom: 16px;
-}
 
-form label {
-    display: block;
-    margin-bottom: 4px;
-    font-weight: bold;
-}
-
-form input,
-form textarea {
-    width: 100%;
+form {
     max-width: 400px;
-    padding: 8px;
-    border: 1px solid #767676;
-    border-radius: 4px;
-    font-family: inherit;
-    font-size: 1rem;
-}
-
-form button {
-    padding: 10px 24px;
-    border: none;
-    border-radius: 4px;
-    background-color: var(--color-primario);
-    color: #fff;
-    font-family: inherit;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-form button:hover {
-    background-color: var(--color-secundario);
 }
 
 /* ===== Footer ===== */
@@ -323,4 +214,90 @@ footer {
 
 footer p {
     margin-bottom: 0;
+}
+
+/* ===== Posicionamiento ===== */
+
+/* Navbar fija arriba al hacer scroll (los colores estan en Bootstrap - personalizaciones */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+
+/* Badge de visitantes sobre la primera foto */
+.fotos {
+    position: relative;
+}
+
+.fotos .badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+
+
+/* ===== Bootstrap - personalizaciones ===== */
+
+/* Paleta, ya que badge y lo demás usan el azul de Numazu */
+
+:root {
+    --bs-primary-rgb: 0, 119, 182;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    background-color: var(--color-primario);
+}
+
+.navbar .nav-link {
+    padding: 14px 28px;
+    color: #fff;
+    font-weight: bold;
+    border-bottom: 3px solid transparent;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.navbar .nav-link:hover {
+    background-color: var(--color-secundario);
+    border-bottom-color: var(--color-acento);
+}
+
+/* ===== Cards ===== */
+.card {
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+}
+
+/* ===== Botones ===== */
+.btn-primary {
+    --bs-btn-bg: var(--color-primario);
+    --bs-btn-border-color: var(--color-primario);
+    --bs-btn-hover-bg: var(--color-secundario);
+    --bs-btn-hover-border-color: var(--color-secundario);
+    --bs-btn-active-bg: var(--color-secundario);
+    --bs-btn-active-border-color: var(--color-secundario);
+}
+
+/* ===== Carrusel ===== */
+
+.carousel {
+    margin-bottom: 24px;
+}
+
+.carousel-item img {
+    height: 480px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    bottom: 2.5rem;
+    background-color: rgba(25, 38, 99, 0.75); /* --color-secundario con transparencia */
+    border-radius: 8px;
+    padding: 12px 16px;
 }
