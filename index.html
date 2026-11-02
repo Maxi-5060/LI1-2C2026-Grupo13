@@ -9,9 +9,15 @@
         <meta name="author" content="Maxi5060">
         <meta name="robots" content="noarchive, noimageindex">
         
+        <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- CSS propio -->
         <link rel="stylesheet" href="./styles/styles.css">
 
         <title>Numazu, Shizuoka | Presentación de la ciudad</title>
@@ -30,16 +36,30 @@
             height="231"
             alt="Bandera de Numazu">
 
-        <nav aria-label="Menú principal">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="#ciudad">Ciudad</a></li>
-                <li><a href="#lugares">Lugares</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
+        </header>
 
-    </header>
+    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Menú Principal">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Numazu </a>
+
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                    aria-controls="menuPrincipal" aria-expanded="false"
+                    aria-label="Mostrar u ocultar el menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ciudad">Ciudad</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#lugares">Lugares</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
 
         <main>
     <section id="inicio">
@@ -50,36 +70,105 @@
         </p>
 
             <h3>Lugares para no perderse</h3>
-    <ul class="resumen">
-        <li>
-            <a href="#view-o">
-                <img src="./Img/O-View.png" width="800" height="600" alt="Mirador View-O junto al puerto" loading="lazy">
-                <span class="nombre">View-O</span>
-                <span class="dato">Mirador con vista 360° al monte Fuji</span>
-            </a>
-        </li>
-        <li>
-            <a href="#senbon-matsubara">
-                <img src="./Img/Senbon-Matsubara.png" width="800" height="600" alt="Pinar de Senbon Matsubara" loading="lazy">
-                <span class="nombre">Senbon Matsubara</span>
-                <span class="dato">Pinar de 10 km frente al mar</span>
-            </a>
-        </li>
-        <li>
-            <a href="#acuario">
-                <img src="./Img/Aguas-profundas.png" width="800" height="600" alt="Acuario de Aguas Profundas" loading="lazy">
-                <span class="nombre">Acuario de Aguas Profundas</span>
-                <span class="dato">El primer museo del mundo de especies abisales</span>
-            </a>
-        </li>
-        <li>
-            <a href="#villa-imperial">
-                <img src="./Img/Villa-Numazu.png" width="800" height="600" alt="Villa Imperial de Numazu" loading="lazy">
-                <span class="nombre">Villa Imperial</span>
-                <span class="dato">Historia, arquitectura y jardín japonés</span>
-            </a>
-        </li>
-    </ul>
+    <div id="carruselLugares" class="carousel slide mb-4" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carruselLugares" data-bs-slide-to="0" class="active" aria-current="true" aria-label="View-O, foto 1"></button>
+            <button type="button" data-bs-target="#carruselLugares" data-bs-slide-to="1" aria-label="View-O, foto 2"></button>
+            <button type="button" data-bs-target="#carruselLugares" data-bs-slide-to="2" aria-label="Senbon Matsubara, foto 1"></button>
+            <button type="button" data-bs-target="#carruselLugares" data-bs-slide-to="3" aria-label="Senbon Matsubara, foto 2"></button>
+            <button type="button" data-bs-target="#carruselLugares" data-bs-slide-to="4" aria-label="Acuario, foto 1"></button>
+            <button type="button" data-bs-target="#carruselLugares" data-bs-slide-to="5" aria-label="Acuario, foto 2"></button>
+            <button type="button" data-bs-target="#carruselLugares" data-bs-slide-to="6" aria-label="Villa Imperial, foto 1"></button>
+            <button type="button" data-bs-target="#carruselLugares" data-bs-slide-to="7" aria-label="Villa Imperial, foto 2"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <!-- View-O -->
+            <div class="carousel-item active">
+                <img src="./Img/O-View-Dia.png" class="d-block w-100" alt="View-O de día, con sus dos torres sobre el agua">
+                <div class="carousel-caption">
+                    <h4>View-O</h4>
+                    <p>Compuerta antitsunami con mirador</p>
+                    <a href="#view-o" class="btn btn-primary">Ver más</a>
+                </div>
+            </div>
+        <div class="carousel-item">
+            <img src="./Img/O-View-Noche.png" class="d-block w-100" alt="View-O iluminado de noche en tonos rosados y violetas">
+            <div class="carousel-caption">
+                <h4>View-O de noche</h4>
+                <p>Iluminado, ideal para pasear después de cenar</p>
+                <a href="#view-o" class="btn btn-primary">Ver más</a>
+            </div>
+        </div>
+
+        <!-- Senbon Matsubara y Parque Senbonhama -->
+        <div class="carousel-item">
+            <img src="./Img/Senbon-Matsubara-Extra.png" class="d-block w-100" alt="Costa de Senbon Matsubara, con la playa, el paseo junto al mar y pinos">
+            <div class="carousel-caption">
+                <h4>Senbon Matsubara</h4>
+                <p>Pinar de 10 km frente a la bahía de Suruga</p>
+                <a href="#senbon-matsubara" class="btn btn-primary">Ver más</a>
+            </div>
+        </div>
+
+                <div class="carousel-item">
+            <img src="./Img/Senbonhama-Park-Extra.png" class="d-block w-100" alt="Sendero entre pinos en el parque Senbonhama">
+            <div class="carousel-caption">
+                <h4>Parque Senbonhama</h4>
+                <p>Un tramo del bosque hecho parque</p>
+                <a href="#senbon-matsubara" class="btn btn-primary">Ver más</a>
+            </div>
+        </div>
+
+        <!-- Acuario -->
+        <div class="carousel-item">
+            <img src="./Img/Aguas-Profundas-Frente.png" class="d-block w-100" alt="Frente del Acuario de Aguas Profundas, con un cangrejo dorado y un celacanto sobre la entrada">
+            <div class="carousel-caption">
+                <h4>Acuario de Aguas Profundas</h4>
+                <p>El primer museo del mundo de especies abisales</p>
+                <a href="#acuario" class="btn btn-primary">Ver más</a>
+            </div>
+        </div>
+
+                <div class="carousel-item">
+            <img src="./Img/Aguas-Profundas-Interior.png" class="d-block w-100" alt="Sala del acuario con una gran pecera de cangrejos araña bajo luz azul">
+            <div class="carousel-caption">
+                <h4>Acuario de Aguas Profundas</h4>
+                <p>Especies de aguas profundas a la vista</p>
+                <a href="#acuario" class="btn btn-primary">Ver más</a>
+            </div>
+        </div>
+
+        <!-- Villa Imperial -->
+        <div class="carousel-item">
+            <img src="./Img/Villa-Numazu-Entrada.png" class="d-block w-100" alt="Entrada de madera de la Villa Imperial, rodeada de pinos">
+            <div class="carousel-caption">
+                <h4>Villa Imperial</h4>
+                <p>Historia, arquitectura y jardín japonés</p>
+                <a href="#villa-imperial" class="btn btn-primary">Ver más</a>
+            </div>
+        </div>
+
+
+        <div class="carousel-item">
+            <img src="./Img/Villa-Numazu-Interior.png" class="d-block w-100" alt="Sala de la Villa Imperial con puertas corredizas y muebles de estilo occidental">
+            <div class="carousel-caption">
+                <h4>Villa Imperial</h4>
+                <p>Un vistazo a la vida imperial de principios del siglo XX</p>
+                <a href="#villa-imperial" class="btn btn-primary">Ver más</a>
+            </div>
+        </div>
+        </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carruselLugares" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carruselLugares" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
 
     <h3>Eventos y actividades destacados</h3>
     <div class="eventos">
@@ -106,6 +195,7 @@
     <section id="ciudad">
         <h2>La ciudad</h2>
         <article class="historia">
+            <h3>Ubicación e historia</h3>
             <p>
                 Numazu está en el sureste de la prefectura de <a href="https://es.wikipedia.org/wiki/Prefectura_de_Shizuoka" target="_blank" rel="noopener noreferrer">Shizuoka</a>, cerca de la desembocadura del río Kano, frente a la <a href="https://es.wikipedia.org/wiki/Bah%C3%ADa_de_Suruga" target="_blank" rel="noopener noreferrer">bahía de Suruga</a> y en la base de la <a href="https://es.wikipedia.org/wiki/Pen%C3%ADnsula_de_Izu" target="_blank" rel="noopener noreferrer">península de Izu</a>.
             </p>
@@ -119,6 +209,7 @@
         </article>
 
         <article class="identidad">
+            <h3>De balneario a ciudad</h3>
             <p>
                 La estación de tren se inauguró en 1889 y su costa le dio fama de balneario, que se reforzó en 1893, cuando se construyó una villa imperial como lugar de descanso del príncipe heredero.
                 <strong>El 1 de julio de 1923, Numazu obtuvo el título de ciudad.</strong>
@@ -128,14 +219,14 @@
         <article class="cronologia">
             <h3>Cronología</h3>
             <ol>
-                <li><strong>1899:</strong> se inagura la estación de tren.</li>
+                <li><strong>1889:</strong> se inagura la estación de tren.</li>
                 <li><strong>1893:</strong> se construye la villa imperial como lugar de descanso del príncipe heredero.</li>
                 <li><strong>1923:</strong> el 1 de julio, Numazu obtiene el titulo de ciudad.</li>
             </ol>
         </article>
 
         <article class="caracteristicas">
-            <h3> Caracteristicas</h3>
+            <h3>Características</h3>
             <p>
                 Tiene la costa más larga de todos los municipios de la prefectura y da a la bahía de Suruga, la más profunda de Japón. Gracias a esto, el puerto es rico en pescados y mariscos, incluidos los de aguas profundas.
                 El monte Fuji se ve sobre la ciudad en días despejados.
@@ -163,7 +254,7 @@
             <strong>El himono:</strong> es la costumbre más característica de Numazu. Se trata de pescado secado al sol.
             Numazu produce más caballa japonesa seca que cualquier otra región de Japón y se suele comprar de souvenir para luego cocinarla a la parrilla o en sartén.
             Cada verano se celebra un Festival del Himono y, en 2018, la Numazu Himono no Kai logró el
-            <a href="https://guinnessworldrecords.de/world-records/117925-longest-line-of-edible-fish" target="_blank" rel="noopener noreferrer">récord Guinness de la fila más larga de pescados comestibles</a>con 3.287 piezas.
+            <a href="https://guinnessworldrecords.de/world-records/117925-longest-line-of-edible-fish" target="_blank" rel="noopener noreferrer">récord Guinness de la fila más larga de pescados comestibles</a> con 3.287 piezas.
             </p>
 
             <p>
@@ -205,12 +296,18 @@
 
     <section id="lugares">
         <h2>Lugares más visitados de Numazu</h2>
-        <p><strong>Cifras ficticias con fines educativos.</strong></p>
 
-        <div class="lugares">
-            <article class="lugar" id="view-o">
-                <h3>1. View-O</h3>
-        <p class="visitantes">1.250.000 visitantes al año</p>
+        <div class="alert alert-warning" role="alert">
+            <strong>Cifras ficticias con fines educativos.</strong>
+        </div>
+
+        <div class="container-fluid px-0">
+            <div class="row g-4">
+
+                <div class="col-12 col-md-6">
+                    <article class="card h-100 lugar" id="view-o">
+                        <h3>1. View-O</h3>
+
         <p>
             Una gigantesca compuerta construida en 2004 para proteger la ciudad de los tsunamis, con un mirador en la parte superior.
             Mide 40 m de ancho y 9,3 m de alto y pesa 406 toneladas, y es una de las compuertas de agua más grandes de Japón.
@@ -218,6 +315,7 @@
         </p>
 
     <div class="fotos">
+        <span class="badge text-bg-primary">1.250.000 visitantes al año</span>
         <img src="./Img/O-View.png" width="800" height="600" alt="View-O visto desde el puerto de Numazu" loading="lazy">
         <img src="./Img/O-View-Afternoon.png" width="800" height="600" alt="View-O iluminado al atardecer" loading="lazy">
     </div>
@@ -241,19 +339,22 @@
         <a href="https://trip.numazukanko.jp/spot/10008" target="_blank" rel="noopener noreferrer">Visit Numazu, sitio oficial de turismo</a>
     </p>
         </article>
+    </div>
 
-        <article class="lugar" id="senbon-matsubara">
-            <h3>2. Senbon Matsubara y Parque Senbonhama</h3>
-            <p class="visitantes">980.000 visitantes al año</p>
-            <p>
-                Un bosque de decenas de miles de pinos que se extiende unos 10 km a lo largo del mar, desde la desembocadura del río Kano hasta Tagonoura.
-                Sus pinos siempre verdes, con el monte Fuji nevado de fondo y el atardecer tiñendo de rojo la bahía de Suruga, hicieron que fuera reconocido como uno de los 100 mejores pinares costeros de Japón.
-            </p>
-            <p>
-                También tiene historia: a fines del siglo XVI fue escenario de una batalla entre los clanes Takeda y Go-Hōjō, y el bosque quedó arrasado.
-                Fue recuperado con esfuerzo durante cinco años por Zōyo Shōnin, un famoso monje budista. Hoy una parte del bosque es un parque con placas en honor a personalidades culturales que lo celebraron.
-            </p>
+                <div class="col-12 col-md-6">
+                    <article class="card h-100 lugar" id="senbon-matsubara">
+                        <h3>2. Senbon Matsubara y Parque Senbonhama</h3>
+
+        <p>
+            Un bosque de decenas de miles de pinos que se extiende unos 10 km a lo largo del mar, desde la desembocadura del río Kano hasta Tagonoura.
+            Sus pinos siempre verdes, con el monte Fuji nevado de fondo y el atardecer tiñendo de rojo la bahía de Suruga, hicieron que fuera reconocido como uno de los 100 mejores pinares costeros de Japón.
+        </p>
+        <p>
+            También tiene historia: a fines del siglo XVI fue escenario de una batalla entre los clanes Takeda y Go-Hōjō, y el bosque quedó arrasado.
+            Fue recuperado con esfuerzo durante cinco años por Zōyo Shōnin, un famoso monje budista. Hoy una parte del bosque es un parque con placas en honor a personalidades culturales que lo celebraron.
+        </p>
             <div class="fotos">
+                <span class="badge text-bg-primary">980.000 visitantes al año</span>
                 <img src="./Img/Senbon-Matsubara.png" width="800" height="600" alt="Foto sobre la playa Senbon Matsubara" loading="lazy">
                 <img src="./Img/Senbonhama-Park.png" width="800" height="600" alt="Foto del parque Senbonhama" loading="lazy">
             </div>
@@ -269,22 +370,26 @@
 
                 <dt>Cómo llegar</dt>
                 <dd>A unos 10 minutos en colectivo desde la estación de Numazu (bajarse en Kannon-mae). Hay estacionamiento gratuito en el parque.</dd>
+
             </dl>
         </article>
+        </div>
 
-        <article class="lugar" id="acuario">
-            <h3>3. Acuario de Aguas Profundas</h3>
-            <p class="visitantes">720.000 visitantes al año</p>
-                <p>
-                La bahía de Suruga es la más profunda de Japón, con hasta 2.500 m, y por eso es el lugar ideal para este acuario.
-                Es el primer museo del mundo dedicado a especies que viven a más de 200 m bajo la superficie del mar.
+            <div class="col-12 col-md-6">
+                <article class="card h-100 lugar" id="acuario">
+                    <h3>3. Acuario de Aguas Profundas</h3>
+
+            <p>
+            La bahía de Suruga es la más profunda de Japón, con hasta 2.500 m, y por eso es el lugar ideal para este acuario.
+            Es el primer museo del mundo dedicado a especies que viven a más de 200 m bajo la superficie del mar.
             </p>
             <p>
-                Es más conocido por sus especímenes de celacanto, un "fósil viviente": tres disecados y dos congelados.
-                También tiene una pecera con los organismos de la bahía de Suruga y un "planetario" de aguas profundas con especies bioluminiscentes.
-                La tienda del museo vende juguetes, accesorios y dulces con temática de las profundidades.
+            Es más conocido por sus especímenes de celacanto, un "fósil viviente": tres disecados y dos congelados.
+            También tiene una pecera con los organismos de la bahía de Suruga y un "planetario" de aguas profundas con especies bioluminiscentes.
+            La tienda del museo vende juguetes, accesorios y dulces con temática de las profundidades.
             </p>
             <div class="fotos">
+                <span class="badge text-bg-primary">720.000 visitantes al año</span>
                 <img src="./Img/Aguas-Profundas.png" width="800" height="600" alt="Foto sobre el Acuario Aguas Profundas" loading="lazy">
                 <img src="./Img/Aguas-Profundas-Extra.png" width="800" height="600" alt="Foto adicional sobre el Acuario Aguas Profundas" loading="lazy">
             </div>
@@ -305,19 +410,22 @@
                 <dd>A unos 15 minutos en colectivo desde la estación de Numazu (bajarse en Numazu Port). No tiene estacionamiento propio, pero hay playas de estacionamiento pagas cerca.</dd>
             </dl>
         </article>
+        </div>
 
-        <article class="lugar" id="villa-imperial">
-            <h3>4. Villa Imperial de Numazu</h3>
-            <p class="visitantes">410.000 visitantes al año</p>
-            <p>
-                La villa se construyó en 1893 como lugar de descanso para el entonces príncipe heredero, el futuro emperador Taishō, mientras se recuperaba de una enfermedad.
-                En 1969 la ciudad de Numazu se hizo cargo de la villa y sus terrenos, y los abrió al público como parque memorial.
-            </p>
-            <p>
-                El edificio principal se destruyó en un incendio durante la Segunda Guerra Mundial, pero se conservan los anexos oeste y este.
-                El anexo oeste es un valioso ejemplo de la arquitectura de la corte imperial y permite asomarse a la vida imperial de principios del siglo XX.
-            </p>
+                <div class="col-12 col-md-6">
+                    <article class="card h-100 lugar" id="villa-imperial">
+                        <h3>4. Villa Imperial de Numazu</h3>
+
+        <p>
+            La villa se construyó en 1893 como lugar de descanso para el entonces príncipe heredero, el futuro emperador Taishō, mientras se recuperaba de una enfermedad.
+            En 1969 la ciudad de Numazu se hizo cargo de la villa y sus terrenos, y los abrió al público como parque memorial.
+        </p>
+        <p>
+            El edificio principal se destruyó en un incendio durante la Segunda Guerra Mundial, pero se conservan los anexos oeste y este.
+            El anexo oeste es un valioso ejemplo de la arquitectura de la corte imperial y permite asomarse a la vida imperial de principios del siglo XX.
+        </p>
             <div class="fotos">
+                <span class="badge text-bg-primary">410.000 visitantes al año</span>
                 <img src="./Img/Villa-Numazu.png" width="800" height="600" alt="Foto reciente sobre la Villa Imperial" loading="lazy">
                 <img src="./Img/Villa-Numazu-Old.png" width="800" height="600" alt="Foto antigua sobre la Villa Imperial" loading="lazy">
             </div>
@@ -340,6 +448,9 @@
             </dl>
         </article>
     </div>
+
+            </div> <!-- Este cierra el .row-->
+            </div> <!-- Este cierra el .container-fluid-->
 </section>
 
     </main>
@@ -347,5 +458,8 @@
             <!-- Pie de página -->
             <p>© 2026 Oficina de Turismo de Numazu</p>
         </footer>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
