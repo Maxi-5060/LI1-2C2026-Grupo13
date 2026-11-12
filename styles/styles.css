@@ -68,7 +68,6 @@ img {
 }
 
 /* ===== Header ===== */
-
 header {
     background-color: var(--color-secundario);
     color: #fff;
@@ -84,7 +83,7 @@ header h1 {
 
 header img {
     display: block;
-    margin: 0 auto 16px;
+    margin: 0 auto;
 }
 
 /* ===== Contenido principal ===== */
@@ -104,7 +103,6 @@ section > article {
 /* ===== Inicio ===== */
 
 /* Flexbox: grilla de eventos con flex-wrap y gap */
-
 .eventos {
     display: flex;
     flex-wrap: wrap;
@@ -126,10 +124,13 @@ section > article {
 
 /* ===== Datos clave ===== */
 .datos-clave dl {
-    display: flex;
-    flex-wrap: wrap;
     max-width: 600px;
     border: 2px solid var(--color-texto);
+}
+
+.datos-clave .dato-fila {
+    display: flex;
+    align-items: stretch;
 }
 
 .datos-clave dt {
@@ -139,25 +140,29 @@ section > article {
     color: #fff;
     background-color: var(--color-primario);
     border-bottom: 1px solid var(--color-texto);
+    box-sizing: border-box;
+    margin: 0;
 }
 
 .datos-clave dd {
     width: 65%;
     padding: 8px 12px;
     border-bottom: 1px solid var(--color-texto);
+    box-sizing: border-box;
+    margin: 0;
 }
 
-.datos-clave dd:nth-of-type(even) {
+.datos-clave .dato-fila:nth-child(even) dd {
     background-color: var(--color-gris);
 }
 
-.datos-clave dt:last-of-type,
-.datos-clave dd:last-of-type {
+/* Quitar la última línea inferior */
+.datos-clave .dato-fila:last-child dt,
+.datos-clave .dato-fila:last-child dd {
     border-bottom: none;
 }
 
 /* ===== Lugares ===== */
-
 .lugar {
     border: 1px solid var(--color-borde);
     border-radius: 8px;
@@ -194,7 +199,6 @@ section > article {
 }
 
 /* ===== Formulario (contacto) ===== */
-
 form {
     max-width: 400px;
 }
@@ -215,35 +219,33 @@ footer p {
 
 /* ===== Posicionamiento ===== */
 
-/* Navbar fija arriba al hacer scroll (los colores estan en Bootstrap - personalizaciones */
-
+/* Navbar fija arriba al hacer scroll (los colores están en Bootstrap - personalizaciones) */
 .navbar {
     position: sticky;
     top: 0;
     z-index: 1020;
 }
 
-/* Badge de visitantes sobre la primera foto */
+/* Contenedor de fotos como referencia del badge (el layout flex está en Fotos) */
 .fotos {
     position: relative;
 }
 
+/* Badge de visitantes sobre la primera foto */
 .fotos .badge {
     position: absolute;
     top: 8px;
     left: 8px;
 }
 
-
 /* ===== Bootstrap - personalizaciones ===== */
 
-/* Paleta, ya que badge y lo demás usan el azul de Numazu */
-
+/* Paleta: el badge y lo demás usan el azul de Numazu */
 :root {
     --bs-primary-rgb: 0, 119, 182;
 }
 
-/* ===== Navbar ===== */
+/* Navbar */
 .navbar {
     background-color: var(--color-primario);
 }
@@ -261,7 +263,7 @@ footer p {
     border-bottom-color: var(--color-acento);
 }
 
-/* ===== Cards ===== */
+/* Cards */
 .card {
     transition: box-shadow 0.2s, transform 0.2s;
 }
@@ -271,7 +273,7 @@ footer p {
     transform: translateY(-4px);
 }
 
-/* ===== Botones ===== */
+/* Botones */
 .btn-primary {
     --bs-btn-bg: var(--color-primario);
     --bs-btn-border-color: var(--color-primario);
@@ -281,8 +283,7 @@ footer p {
     --bs-btn-active-border-color: var(--color-secundario);
 }
 
-/* ===== Carrusel ===== */
-
+/* Carrusel */
 .carousel {
     max-width: 1100px;
     margin: 0 auto 24px;
@@ -298,4 +299,188 @@ footer p {
     background-color: rgba(25, 38, 99, 0.75); /* --color-secundario con transparencia */
     border-radius: 8px;
     padding: 12px 16px;
+}
+
+/* ===== JavaScript: validación del formulario ===== */
+
+/* Mensaje general debajo del formulario */
+.mensaje-exito,
+.mensaje-error {
+    display: block;
+    margin-top: 16px;
+    padding: 12px 16px;
+    border: 1px solid;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.mensaje-exito {
+    color: #146c43;
+    background-color: #d1e7dd;
+    border-color: #a3cfbb;
+}
+
+.mensaje-exito::before {
+    content: "✓";
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.mensaje-error {
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f1aeb5;
+}
+
+.mensaje-error::before {
+    content: "⚠";
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+/* Errores individuales de cada campo */
+.error-validacion {
+    display: block;
+    margin-top: 4px;
+    color: #dc3545;
+    font-size: 0.875rem;
+}
+
+.campo-invalido {
+    border-color: #dc3545 !important;
+}
+
+.campo-invalido:focus {
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+/* ===== JavaScript: modo oscuro ===== */
+
+/* Base */
+body.modo-oscuro {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+/* Textos */
+body.modo-oscuro h1,
+body.modo-oscuro h2,
+body.modo-oscuro h3,
+body.modo-oscuro h4,
+body.modo-oscuro p,
+body.modo-oscuro li,
+body.modo-oscuro strong {
+    color: #f1f1f1;
+}
+
+/* Enlaces del contenido (la navbar conserva sus colores) */
+body.modo-oscuro main a:not(.btn) {
+    color: #75cfff;
+}
+
+/* Formulario */
+body.modo-oscuro .form-control {
+    background-color: #242424;
+    color: #ffffff;
+    border-color: #555555;
+}
+
+/* Bootstrap vuelve a poner fondo claro al hacer foco; esto lo evita */
+body.modo-oscuro .form-control:focus {
+    background-color: #242424;
+    color: #ffffff;
+}
+
+/* Mensajes de validación */
+body.modo-oscuro .mensaje-exito {
+    color: #a3e6c1;
+    background-color: #193b2b;
+    border-color: #286747;
+}
+
+body.modo-oscuro .mensaje-error {
+    color: #ffb3b8;
+    background-color: #482528;
+    border-color: #843b42;
+}
+
+body.modo-oscuro .error-validacion {
+    color: #ff808a;
+}
+
+body.modo-oscuro .campo-invalido {
+    border-color: #ff808a !important;
+}
+
+/* Eventos */
+body.modo-oscuro .evento {
+    background-color: #242424;
+    color: #f1f1f1;
+}
+
+body.modo-oscuro .evento .cuando {
+    color: #80d4ff;
+}
+
+/* Datos clave */
+body.modo-oscuro .datos-clave dl {
+    border-color: #555555;
+}
+
+body.modo-oscuro .datos-clave dt {
+    background-color: #192663;
+}
+
+body.modo-oscuro .datos-clave dd {
+    background-color: #242424;
+    color: #f1f1f1;
+    border-bottom-color: #555555;
+}
+
+/* Mantener el resaltado alternado de los valores */
+body.modo-oscuro .datos-clave .dato-fila:nth-child(even) dd {
+    background-color: #303030;
+}
+
+/* Lugares (cards) */
+body.modo-oscuro .lugar {
+    background-color: #242424;
+    color: #f1f1f1;
+    border-color: #555555;
+}
+
+body.modo-oscuro .lugar h3 {
+    color: #80d4ff;
+}
+
+body.modo-oscuro .lugar dd {
+    color: #e0e0e0;
+}
+
+body.modo-oscuro .lugar a {
+    color: #80d4ff;
+}
+
+body.modo-oscuro .lugar a:hover {
+    color: #b8e8ff;
+}
+
+/* Aviso de cifras ficticias */
+body.modo-oscuro #lugares .alert-warning {
+    background-color: #3b321d;
+    color: #ffe8a3;
+    border-color: #75602b;
+}
+
+/* Etiquetas con cantidad de visitantes */
+body.modo-oscuro #lugares .fotos .badge {
+    background-color: #164e70 !important;
+    color: #ffffff;
+}
+
+/* Iconos de contacto */
+body.modo-oscuro article img[src*="telephone.png"],
+body.modo-oscuro article img[src*="mail.png"],
+body.modo-oscuro article img[src*="address.png"] {
+    filter: invert(1);
 }
