@@ -29,9 +29,6 @@ body {
     line-height: 1.6;
     color: var(--color-texto);
     background-color: var(--color-fondo);
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 1rem;
 }
 
 h2 {
@@ -92,7 +89,7 @@ header img {
 
 /* ===== Contenido principal ===== */
 main {
-    padding: 24px 0;
+    padding: 24px 5%;
 }
 
 section {
@@ -287,7 +284,8 @@ footer p {
 /* ===== Carrusel ===== */
 
 .carousel {
-    margin-bottom: 24px;
+    max-width: 1100px;
+    margin: 0 auto 24px;
 }
 
 .carousel-item img {
