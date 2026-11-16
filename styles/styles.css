@@ -263,6 +263,11 @@ footer p {
     border-bottom-color: var(--color-acento);
 }
 
+.navbar .nav-link.active {
+    background-color: var(--color-secundario);
+    border-bottom-color: var(--color-acento);
+}
+
 /* Cards */
 .card {
     transition: box-shadow 0.2s, transform 0.2s;

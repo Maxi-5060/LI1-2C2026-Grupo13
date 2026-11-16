@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
             );
         }
 
-        // validar teléfono
+        // Validar teléfono
         const numeroLimpio = telefono.value.replace (/[\s()+,-]/g, "");
 
         if(!/^\d{7,15}$/.test(numeroLimpio)) {
@@ -154,4 +154,51 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // ==========================================
+    // Resaltar en el nav la sección que se visita
+    // ==========================================
+
+
+    // Solo links internos (Ciudad, Lugares)
+    const enlacesNav = document.querySelectorAll('.navbar .nav-link[href^="#"]');
+
+    if (enlacesNav.length > 0) {
+
+        function marcarActivo(id) {
+            enlacesNav.forEach(function (enlace) {
+                const esActivo = enlace.getAttribute("href") === "#" + id;
+
+                enlace.classList.toggle("active", esActivo);
+
+                if (esActivo) {
+                    enlace.setAttribute("aria-current", "location");
+                } else {
+                    enlace.removeAttribute("aria-current");
+                }
+            });
+        }
+
+        const observador = new IntersectionObserver(
+            function (entradas) {
+                entradas.forEach(function (entrada) { 
+                    if (entrada.isIntersecting) {
+                        marcarActivo(entrada.target.id);
+                    }
+                });
+            },
+            // Zona de deteccíon: Entre el 30% y 40% de la altura de pantalla
+            { rootMargin: "-30% 0px -60% 0px"}
+        );
+
+        enlacesNav.forEach(function (enlace) { 
+            const seccion = document.querySelector(enlace.getAttribute("href"));
+
+            if (seccion) {
+                observador.observe(seccion);
+            }
+        });
+
+        // Al cargar la página, se marca el primero (Inicio)
+        marcarActivo(enlacesNav[0].getAttribute("href").slice(1));
+    }
 });
